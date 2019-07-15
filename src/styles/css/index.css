@@ -5,9 +5,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App {
-  margin-top: 20vh;
+.main .header {
+  padding: 20vh;
   text-align: center;
+  color: #eeeeee;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.main .page {
+  padding: 20vh 20vh;
+  height: 50vh;
+  text-align: center;
+}
+.main .page.class1 {
+  background-color: lightblue;
+}
+.main .page.class2 {
+  background-color: lightcoral;
+}
+.main .page.class3 {
+  background-color: lightcyan;
+}
+.main .page.class4 {
+  background-color: lightsalmon;
 }
 
 /*# sourceMappingURL=index.css.map */
