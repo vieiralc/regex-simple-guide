@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: "Press Start 2P", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  margin-top: 20vh;
+  text-align: center;
+}
+
+/*# sourceMappingURL=App.css.map */
