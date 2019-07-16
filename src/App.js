@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
-import Page from './components/Page'
-import ins from './data/instructions.json'
 
 function App() {
 
-  const [texts] = useState(ins)
+  const [input, setInput] = useState("")
 
   const getRandomNumber = () => {
     let random = Math.floor(Math.random() * 5) + 1
     return random
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
   }
 
   return (
@@ -19,11 +21,30 @@ function App() {
       </header>
 
       <section className="body">
-        {
-          texts.map((text, index) => 
-            <Page key={index} title={text.title} text={text.text} classname={`class${getRandomNumber()}`}/>
-          )
-        }
+        <div id="splitpage" className={`page class${getRandomNumber()}`}>
+          <div className="left">
+              <h2>teste1</h2>
+              <p>texte1</p>
+          </div>
+          <div className="right">
+              <h4>Example: /[0-9]{1}\.[0-9]{2}/ </h4>
+              <form onSubmit={handleSubmit}>
+                  <input 
+                      type="text" 
+                      placeholder="Some text..." 
+                      pattern="/[0-9]{1}\.[0-9]{2}/"
+                      onChange={(e) => setInput(e.target.value)}
+                      value={input}
+                  />
+                  <button> Test</button>
+              </form>
+          </div>
+        </div>
+
+        <div id="simplepage" className={`page class${getRandomNumber()}`}>
+            <h2>teste2</h2>
+            <p>teste2</p>
+        </div>
       </section>
     </div>
   );
