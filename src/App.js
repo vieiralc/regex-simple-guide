@@ -4,11 +4,6 @@ function App() {
 
   const [input, setInput] = useState("")
 
-  const getRandomNumber = () => {
-    let random = Math.floor(Math.random() * 5) + 1
-    return random
-  }
-
   const handleSubmit = e => {
     e.preventDefault()
   }
@@ -21,28 +16,31 @@ function App() {
       </header>
 
       <section className="body">
-        <div id="splitpage" className={`page class${getRandomNumber()}`}>
+        <div id="splitpage" className={`page class1`}>
           <div className="left">
-              <h2>teste1</h2>
+              <h3>teste1</h3>
               <p>texte1</p>
           </div>
           <div className="right">
-              <h4>Example: /[0-9]{1}\.[0-9]{2}/ </h4>
-              <form onSubmit={handleSubmit}>
-                  <input 
-                      type="text" 
-                      placeholder="Some text..." 
-                      pattern="/[0-9]{1}\.[0-9]{2}/"
-                      onChange={(e) => setInput(e.target.value)}
-                      value={input}
-                  />
-                  <button> Test</button>
-              </form>
+            <h5>Example: [0-9]{1}\.[0-9]{2} </h5>
+            <form onSubmit={handleSubmit}>
+              
+              <input 
+                type="text"
+                id="myInput"
+                className="form-control mb-2"
+                placeholder="Some text..." 
+                pattern="[0-9]{1}\.[0-9]{2}"
+                onChange={(e) => setInput(e.target.value)}
+                value={input}
+              />
+              <button id="myButton" type="submit">Test!</button>
+            </form>
           </div>
         </div>
 
-        <div id="simplepage" className={`page class${getRandomNumber()}`}>
-            <h2>teste2</h2>
+        <div id="simplepage" className={`page class2`}>
+            <h3>teste2</h3>
             <p>teste2</p>
         </div>
       </section>
