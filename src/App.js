@@ -43,6 +43,21 @@ function App() {
             <h3>teste2</h3>
             <p>teste2</p>
         </div>
+
+        <div id="simplepage" className={`page class3`}>
+            <h3>teste2</h3>
+            <p>teste2</p>
+        </div>
+
+        <div id="simplepage" className={`page class4`}>
+            <h3>teste2</h3>
+            <p>teste2</p>
+        </div>
+
+        <div id="simplepage" className={`page class5`}>
+            <h3>teste2</h3>
+            <p>teste2</p>
+        </div>
       </section>
     </div>
   );
