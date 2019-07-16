@@ -38,4 +38,20 @@ body {
       background-color: lightpink;
     }  
   }
+
+  #splitpage {
+    display: grid;
+    grid-template-areas: 
+      'left right';
+  }
+  
+  .left {
+    grid-area: left;
+  }
+  
+  .right {
+    grid-area: right;
+    align-self: center;
+  }
 }
+

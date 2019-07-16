@@ -23,10 +23,24 @@ body {
   background-color: lightcoral;
 }
 .main .page.class3 {
-  background-color: lightcyan;
+  background-color: cornflowerblue;
 }
 .main .page.class4 {
   background-color: lightsalmon;
+}
+.main .page.class5 {
+  background-color: lightpink;
+}
+.main #splitpage {
+  display: grid;
+  grid-template-areas: "left right";
+}
+.main .left {
+  grid-area: left;
+}
+.main .right {
+  grid-area: right;
+  align-self: center;
 }
 
 /*# sourceMappingURL=App.css.map */
