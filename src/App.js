@@ -22,7 +22,7 @@ function App() {
               <p>texte1</p>
           </div>
           <div className="right">
-            <h5>Example: [0-9]{1}\.[0-9]{2} </h5>
+            <h5>Example: [0-9]{"{1}"}\.[0-9]{"{2}"} </h5>
             <form onSubmit={handleSubmit}>
               
               <input 
