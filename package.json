@@ -5,11 +5,12 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-notify-toast": "^0.5.0",
     "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "sass" : "sass --watch src/styles/scss:src/styles/css",
+    "sass": "sass --watch src/styles/scss:src/styles/css",
     "build": "sass src/styles/scss:src/styles/css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
