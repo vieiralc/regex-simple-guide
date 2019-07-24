@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Notifications, { notify } from 'react-notify-toast'
+import Messages from './components/Messages'
 
 function App() {
 
@@ -6,10 +8,14 @@ function App() {
 
   const handleSubmit = e => {
     e.preventDefault()
+    let rand = Math.floor(Math.random() * Messages.length)
+    console.log(rand)
+    notify.show(Messages[rand], "warning", 2000)
   }
 
   return (
     <div className="main">
+      <Notifications/>
       <header className="header">
         <h1> Regex - the simple guide </h1>
         <p> a simple guide for getting started with Regex </p>
