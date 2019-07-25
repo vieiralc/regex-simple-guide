@@ -20,6 +20,16 @@ body {
     font-size: 21px;
   }
 
+  #myTable {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 15px;
+  }
+
+
+  tr, td {
+    padding: 3px;
+  }
+
   .page {
     padding: 20vh 20vh;
     text-align: center;
@@ -49,11 +59,12 @@ body {
     display: grid;
     grid-template-areas: 
       'left right';
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
   }
   
   .left {
     grid-area: left;
+    align-self: center;
   }
   
   .right {

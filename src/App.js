@@ -12,6 +12,7 @@ function App() {
     let rand = Math.floor(Math.random() * Messages.length)
     console.log(rand)
     notify.show(Messages[rand], "warning", 2000)
+    setInput("")
   }
 
   return (
@@ -35,10 +36,42 @@ function App() {
           <div className="left">
               <h3>Chapter 1: </h3>
               <h3><i>Character classes</i></h3> 
-              <p className="text"></p>
+              <table id="myTable" border="1">
+                <th> Character classes </th>
+                <th> Description </th>
+                <tr>
+                  <td> <b>.</b> </td>
+                  <td>matches any character except line breaks</td>
+                </tr>
+                <tr>
+                  <td> <b>\w</b> </td>  
+                  <td>matches any digit (0-9). Equivalent to [0-9]</td>
+                </tr> 
+                <tr>
+                  <td><b>\d</b></td>
+                  <td>matches any digit (0-9). Equivalent to [0-9]</td>
+                </tr>
+                <tr>
+                  <td><b>\s</b></td>
+                  <td>matches any whitespace (spaces, line breaks, tabs)</td>
+                </tr>
+                <tr>
+                  <td><b>[ABC]</b></td>
+                  <td>matches any character in the set</td>
+                </tr>
+                <tr>
+                  <td><b>[^ABC]</b></td>
+                  <td>matches any character that is <b>not</b> in the set</td>
+                </tr>
+                <tr>
+                  <td><b>[A-Z]</b></td>
+                  <td>matches any character between the interval</td>
+                </tr>
+              </table>
           </div>
           <div className="right">
-            <h5>Example: [0-9]{"{1}"}\.[0-9]{"{2}"} </h5>
+            <h5>Example: [\w0-9] </h5>
+            <p> Try to match the pattern: </p>
             <form onSubmit={handleSubmit}>
               
               <input 
@@ -46,7 +79,7 @@ function App() {
                 id="myInput"
                 className="form-control mb-2"
                 placeholder="Some text..." 
-                pattern="[0-9]{1}\.[0-9]{2}"
+                pattern="[\w0-9]"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
               />
@@ -59,10 +92,29 @@ function App() {
           <div className="left">
               <h3>Chapter 2: </h3>
               <h3><i>Anchors</i></h3> 
-              <p className="text"></p>
+              <table id="myTable" border="1">
+                <th> Anchors </th>
+                <th> Description </th>
+                <tr>
+                  <td> <b>^</b> </td>
+                  <td>matches beginning of the string or line</td>
+                </tr>
+                <tr>
+                  <td> <b>$</b> </td>  
+                  <td>matches end of string or line </td>
+                </tr> 
+                <tr>
+                  <td><b>\b</b></td>
+                  <td>matches a word boundary position</td>
+                </tr>
+                <tr>
+                  <td><b>\B</b></td>
+                  <td>matches any position that is <b>not</b> a word boundary</td>
+                </tr>
+              </table>
           </div>
           <div className="right">
-            <h5>Example: [0-9]{"{1}"}\.[0-9]{"{2}"} </h5>
+            <h5>Example: $ </h5>
             <form onSubmit={handleSubmit}>
               
               <input 
@@ -70,7 +122,7 @@ function App() {
                 id="myInput"
                 className="form-control mb-2"
                 placeholder="Some text..." 
-                pattern="[0-9]{1}\.[0-9]{2}"
+                pattern="$"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
               />
@@ -84,9 +136,37 @@ function App() {
               <h3>Chapter 3: </h3>
               <h3><i>Escaped Characters</i></h3> 
               <p className="text"></p>
+              <table id="myTable" border="1">
+                <th> Escaped Characters </th>
+                <th> Description </th>
+                <tr>
+                  <td> <b>\.</b> </td>
+                  <td>match only the dot</td>
+                </tr>
+                <tr>
+                  <td> <b>\?</b> </td>  
+                  <td>matches the question mark </td>
+                </tr> 
+                <tr>
+                  <td><b>\+</b></td>
+                  <td>plus sign</td>
+                </tr>
+                <tr>
+                  <td><b>\*</b></td>
+                  <td>matches the star key </td>
+                </tr>
+                <tr>
+                  <td><b>\^</b></td>
+                  <td> matches the circumflex </td>
+                </tr>
+                <tr>
+                  <td><b>\$</b></td>
+                  <td> matches the dollar sign </td>
+                </tr>
+              </table>
           </div>
           <div className="right">
-            <h5>Example: [0-9]{"{1}"}\.[0-9]{"{2}"} </h5>
+            <h5>Example: [0-9]\.[0-9]\*[a-f] </h5>
             <form onSubmit={handleSubmit}>
               
               <input 
@@ -94,7 +174,7 @@ function App() {
                 id="myInput"
                 className="form-control mb-2"
                 placeholder="Some text..." 
-                pattern="[0-9]{1}\.[0-9]{2}"
+                pattern="[0-9]\.[0-9]\*[a-f]"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
               />
@@ -107,10 +187,41 @@ function App() {
           <div className="left">
               <h3>Chapter 4: </h3>
               <h3><i>Groups & Lookaround</i></h3> 
-              <p className="text"></p>
+              <table id="myTable" border="1">
+                <th> Groups </th>
+                <th> Description </th>
+                <tr>
+                  <td> <b>(ABC)</b> </td>
+                  <td>groups multiple tokens together</td>
+                </tr>
+                <tr>
+                  <td> <b>\u</b> ou <b>\1</b> </td>  
+                  <td> matches the results of a previous capture group </td>
+                </tr> 
+              </table> <br/>
+              <table id="myTable" border="1">
+                <th>Expression</th>
+                <th> Matches </th>
+                <tr>
+                  <td> <b>(ha!)+</b> </td>
+                  <td> ha!, ha!ha!, ha!ha!ha! </td>
+                </tr>
+                <tr>
+                  <td> <b>(www\.)?zz\.com</b> </td>
+                  <td> www.zz.com, zz.com </td>
+                </tr>
+                <tr>
+                  <td> <b>(in|con)?certo</b> </td>
+                  <td> incerto, concerto, certo </td>
+                </tr>
+                <tr>
+                  <td> <b>(mini|(su|hi)per)?mercado</b> </td>
+                  <td> supermercado, hipermercado, minimercado </td>
+                </tr>
+              </table>
           </div>
           <div className="right">
-            <h5>Example: [0-9]{"{1}"}\.[0-9]{"{2}"} </h5>
+            <h5>Example: (quero)-\u </h5>
             <form onSubmit={handleSubmit}>
               
               <input 
@@ -118,7 +229,7 @@ function App() {
                 id="myInput"
                 className="form-control mb-2"
                 placeholder="Some text..." 
-                pattern="[0-9]{1}\.[0-9]{2}"
+                pattern="(quero)-\u"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
               />
@@ -127,14 +238,37 @@ function App() {
           </div>
         </div>
 
-        <div id="splitpage" className={`page class5`}>
+        <div id="splitpage" className={`page class1`}>
           <div className="left">
               <h3>Chapter 5: </h3>
               <h3><i>Quantifiers & Alternations</i></h3> 
-              <p className="text"></p>
+              <table id="myTable" border="1">
+                <th>Quantifiers</th>
+                <th> Description </th>
+                <tr>
+                  <td> <b>+</b> </td>
+                  <td> matches 1 or more of the preceding token </td>
+                </tr>
+                <tr>
+                  <td> <b>*</b> </td>
+                  <td> matches 0 or more of the preceding token</td>
+                </tr>
+                <tr>
+                  <td> <b>{"{1,3}"}</b> </td>
+                  <td> matches the specified quantity of the previous token </td>
+                </tr>
+                <tr>
+                  <td> <b>?</b> </td>
+                  <td> Option. Matches 0 or 1 of the preceding token </td>
+                </tr>
+                <tr>
+                  <td> <b>|</b> </td>
+                  <td> Boolean. Acts like a boolean OR </td>
+                </tr>
+              </table>
           </div>
           <div className="right">
-            <h5>Example: [0-9]{"{1}"}\.[0-9]{"{2}"} </h5>
+            <h5>Example: [\d]{"{3}"}\.[\d]{"{3}"}\.[\d]{"{3}"}-[\d]{"{2}"} </h5>
             <form onSubmit={handleSubmit}>
               
               <input 
@@ -142,7 +276,7 @@ function App() {
                 id="myInput"
                 className="form-control mb-2"
                 placeholder="Some text..." 
-                pattern="[0-9]{1}\.[0-9]{2}"
+                pattern="[\d]{3}\.[\d]{3}\.[\d]{3}-[\d]{2}"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
               />
