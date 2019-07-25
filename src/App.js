@@ -195,7 +195,7 @@ function App() {
                   <td>groups multiple tokens together</td>
                 </tr>
                 <tr>
-                  <td> <b>\u</b> ou <b>\1</b> </td>  
+                  <td> <b>\1</b> </td>  
                   <td> matches the results of a previous capture group </td>
                 </tr> 
               </table> <br/>
@@ -221,7 +221,7 @@ function App() {
               </table>
           </div>
           <div className="right">
-            <h5>Example: (quero)-\u </h5>
+            <h5>Example: (quero)-\1 </h5>
             <form onSubmit={handleSubmit}>
               
               <input 
@@ -229,7 +229,7 @@ function App() {
                 id="myInput"
                 className="form-control mb-2"
                 placeholder="Some text..." 
-                pattern="(quero)-\u"
+                pattern="(quero)-\1"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
               />
@@ -283,6 +283,47 @@ function App() {
               <button id="myButton" type="submit">Test!</button>
             </form>
           </div>
+        </div>
+      
+        <div id="simplepage" className={`page class2`}>
+          <h3>Challenge: </h3>
+          <p> 
+            Try to match the following pattern <br/><br/><br/>
+            [a-z0-9_%+-]+@[a-z0-9-]+\.[a-z]{"{2,}"}$ 
+          </p>
+          <form onSubmit={handleSubmit}>
+              
+              <input 
+                type="text"
+                id="myInput"
+                className="form-control mb-2"
+                placeholder="Some text..." 
+                pattern="[a-z0-9_%+-]+@[a-z0-9-]+\.[a-z]{2,}$"
+                onChange={(e) => setInput(e.target.value)}
+                value={input}
+              />
+              <button id="myButton" type="submit">Test!</button>
+            </form>
+        </div>
+
+        <div id="simplepage" className={`page class3`}>
+          <h3>Example: Matching a password </h3>
+          <p className="text"> 
+          We begin by telling the parser to find the beginning of the string (^), followed by any lowercase letter (a-z), number (0-9), an underscore, or a hyphen. Next, {"{6,18}"} makes sure that are at least 6 of those characters, but no more than 18. Finally, we want the end of the string ($).<br/><br/><br/></p>
+          <p>^[a-z0-9_-]{"{6,18}"}$</p>
+          <form onSubmit={handleSubmit}>
+              
+              <input 
+                type="text"
+                id="myInput"
+                className="form-control mb-2"
+                placeholder="Some text..." 
+                pattern="^[a-z0-9_-]{6,18}$"
+                onChange={(e) => setInput(e.target.value)}
+                value={input}
+              />
+              <button id="myButton" type="submit">Test!</button>
+            </form>
         </div>
       </section>
     </div>
