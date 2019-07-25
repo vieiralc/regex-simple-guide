@@ -11,9 +11,14 @@ body {
   color: #eeeeee;
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
+.main .text {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  margin-top: 10vh;
+  font-size: 21px;
+}
 .main .page {
   padding: 20vh 20vh;
-  height: 50vh;
   text-align: center;
 }
 .main .page.class1 {
@@ -34,6 +39,7 @@ body {
 .main #splitpage {
   display: grid;
   grid-template-areas: "left right";
+  grid-template-columns: 1fr 2fr;
 }
 .main .left {
   grid-area: left;
@@ -57,18 +63,16 @@ body {
   display: inline-block;
   height: 42px;
 }
-@media (max-width: 980px) {
+@media (max-width: 800px) {
   .main #splitpage {
     display: grid;
     grid-template-areas: "left" "right";
-    grid-template-rows: 1fr 1fr;
   }
   .main .left {
     grid-area: left;
   }
   .main .right {
     grid-area: right;
-    align-self: center;
   }
 }
 
