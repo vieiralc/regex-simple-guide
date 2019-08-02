@@ -45,7 +45,7 @@ function App() {
                 </tr>
                 <tr>
                   <td> <b>\w</b> </td>  
-                  <td>matches any digit (0-9). Equivalent to [0-9]</td>
+                  <td>matches any word (a-z). Equivalent to [a-z]</td>
                 </tr> 
                 <tr>
                   <td><b>\d</b></td>
